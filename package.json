@@ -1,0 +1,13 @@
+{
+  "name": "simple-api",
+  "version": "1.0.0",
+  "description": "an example of making a node.js api server",
+  "main": "app.js",
+  "author": "kulraj suri",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "numbers": "^0.6.0"
+  }
+}

@@ -1,147 +1,39 @@
 <!DOCTYPE html>
-<html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>NPV Calculator</title>
-        <!--styles css-->
-        <link rel="stylesheet" href="css/styles.css">
-        <!--bootstrap-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <!--sidr jquery theme-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.light.min.css">
-    </head>
+<html ng-app lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>npv rest api app</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
 
-    <body>
-        <nav>
-<!--            <div>-->
-                <span id="menuButton" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                <span id="searchButton" class="" aria-hidden="true">
-                        <div class="icon-search-container" data-ic-class="search-trigger">
-                            <span class="fa fa-search glyphicon glyphicon-search"></span>
-                            <input type="text" class="search-input" data-ic-class="search-input" placeholder="Search"/>
-                            <span class="fa fa-times-circle" data-ic-class="search-clear"></span>
-                        </div>
-                </span>
-<!--            </div>-->
-        </nav>
-        <div id="sidr">
-            <ul>
-                <li class="active"><a href="index.html">Net Present Value</a></li>
-                <li><a href="#">Internal Rate of Return</a></li>
-                <li><a href="#">Another Complicated Function</a></li>
-            </ul>
-        </div>
+<body>
+    <form action="">
+        discount rate: <input type="text" name="" placeholder="discount rate"><br>
+        initial investment: <input type="text" name="" placeholder="initial investment"><br>
+        years: <input type="text" name="lname" placeholder="years"><br>
+        cash flow (year 1): <input type="text" name="" placeholder="cash flow 1"><br>
+        cash flow (year 2): <input type="text" name="" placeholder="cash flow 2"><br>
+        cash flow (year 3): <input type="text" name="" placeholder="cash flow 3"><br>
+        cash flow (year 4): <input type="text" name="" placeholder="cash flow 4"><br>
+        cash flow (year 5): <input type="text" name="" placeholder="cash flow 5"><br>
+        <input type="submit" value="Submit"><br>
+        <br>
+        net present value: <input type="text" name="" placeholder="npv"><br>
 
-        <div id="npv">
-            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-                <mi>NPV</mi> <mo>=</mo>
-                <munderover>
-                    <mi>&Sum;</mi>
-                    <mrow>
-                        <mi>t</mi>
-                        <mo>=</mo>
-                        <mn>1</mn>
-                    </mrow>
-                    <mi>T</mi>
-                </munderover>
-                <mrow>
-                    <mfrac>
-                        <mrow>
-                            <msubsup>
-                                <mi>C</mi>
-                                <mi>t</mi>
-                            </msubsup>
-                        </mrow>
-                        <mrow> 
-                            <msup>
-                                <mfenced>
-                                    <mrow>
-                                        <mi>1</mi>
-                                        <mo>+</mo>
-                                        <mn>r</mn>
-                                    </mrow>
-                                </mfenced>
-                                <mn>t</mn>
-                            </msup>
-                        </mrow>
-                    </mfrac>
-                </mrow>
-                <mrow>
-                    <mo>-</mo>
-                    <msubsup>
-                        <mi>C</mi>
-                        <mi>o</mi>
-                    </msubsup>                
-                </mrow>
-            </math>
-        </div>
-    </body>
-
-    <!--MathJax-->
-    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <!-- jQuery -->
-    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
-    <!-- sidr plugin -->
-    <script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"></script>
-
-    <script>
-    $(document).ready(function() {
-        $('#menuButton').sidr({
-            speed: 500,
-            displace: false
-        });
-    });
-
-    $(document).mouseup(function (e){
-        var container = $("#sidr");
-
-        if (!container.is(e.target) // if the target of the click isn't the container...
-            && container.has(e.target).length === 0) // ... nor a descendant of the container
-        {
-            $.sidr('close', 'sidr');
-        }
-    });
-    </script>
+    </form>
     
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-            var $searchTrigger = $('[data-ic-class="search-trigger"]'),
-                $searchInput = $('[data-ic-class="search-input"]'),
-                $searchClear = $('[data-ic-class="search-clear"]');
-
-            $searchTrigger.click(function(){
-
-                var $this = $('[data-ic-class="search-trigger"]');
-                $this.addClass('active');
-                $searchInput.focus();
-
-            });
-
-            $searchInput.blur(function(){
-
-                if($searchInput.val().length > 0){
-
-                    return false;
-
-                } else {
-
-                    $searchTrigger.removeClass('active');
-
-                }
-
-            });
-
-            $searchClear.click(function(){
-                $searchInput.val('');
-            });
-
-            $searchInput.focus(function(){
-                $searchTrigger.addClass('active');
-            });
-
-        });
-    </script>
-
+    <div ng-controller="Hello">
+        <p>The ID is {{greeting.id}}</p>
+        <p>The content is {{greeting.content}}</p>
+    </div>
+    
+    <div ng-controller="test">
+        <p>{{response.username}}</p>
+        <p>{{response.password}}</p>
+        <p>{{response.twitter}}</p>
+    </div>
+    
+</body>
 </html>
